@@ -187,6 +187,9 @@ export default {
     },
   },
 
+  mounted() {
+  },
+
   methods: {
     ...mapMutations([
       'updateFields',
@@ -194,7 +197,7 @@ export default {
 
     submit() {
       this.updateFields(this.$data);
-      this.$router.push({ name: 'Explanation' });
+      this.$router.push({ name: 'Intro' });
     },
   },
 };
