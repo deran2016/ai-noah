@@ -1,4 +1,4 @@
-# art
+# ai-noah
 
 ## Project setup
 ```
