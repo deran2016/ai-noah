@@ -2,7 +2,7 @@
   <v-app>
     <v-main>
       <v-container
-        id="landscape"
+        class="fill-height"
         fluid
       >
         <v-row
@@ -11,10 +11,10 @@
         >
           <v-col
             cols="12"
-            sm="12"
-            md="12"
-            lg="12"
-            style="width: 100%;"
+            sm="10"
+            md="8"
+            lg="6"
+            style="max-width: 800px;"
           >
             <v-fade-transition mode="out-in">
               <router-view />
