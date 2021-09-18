@@ -17,41 +17,6 @@ const routes = [
     component: () => import('../views/Terms.vue'),
   },
   {
-    path: '/:preset/intro',
-    name: 'Intro',
-    component: () => import('../views/Intro.vue'),
-  },
-  {
-    path: '/:preset/exp-1',
-    name: 'Experiment1',
-    component: () => import('../views/Experiment1.vue'),
-  },
-  {
-    path: '/:preset/exp-2',
-    name: 'Experiment2',
-    component: () => import('../views/Experiment2.vue'),
-  },
-  {
-    path: '/:preset/exp-3',
-    name: 'Experiment3',
-    component: () => import('../views/Experiment3.vue'),
-  },
-  {
-    path: '/:preset/quiz',
-    name: 'Quiz',
-    component: () => import('../views/Quiz.vue'),
-  },
-  {
-    path: '/:preset/game',
-    name: 'Game',
-    component: () => import('../views/Game.vue'),
-  },
-  {
-    path: '/:preset/survey',
-    name: 'Survey',
-    component: () => import('../views/Survey.vue'),
-  },
-  {
     path: '/:preset/submit',
     name: 'Submit',
     component: () => import('../views/Submit.vue'),
