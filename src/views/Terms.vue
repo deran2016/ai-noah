@@ -1,17 +1,8 @@
 <template>
   <v-card
     class="mx-auto"
-    max-width="750"
     outlined
   >
-    <v-list-item three-line>
-      <v-list-item-content>
-        <v-list-item-title class="text-h5 mb-1 text-center">
-          실험 참여 동의
-        </v-list-item-title>
-      </v-list-item-content>
-    </v-list-item>
-
     <v-card-text>
       <div class="body-1">
         연구 참여자 동의서
