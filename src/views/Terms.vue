@@ -152,7 +152,7 @@ export default {
       return this.agreedTerm1
         && this.agreedTerm2
         && (this.selectedOption && this.selectedOption !== '동의하지 않습니다.')
-        && (this.participantID && this.participantID.length >= 6);
+        && (this.participantID && this.participantID.length >= 6 && this.participantID.indexOf('/') !== -1);
     },
   },
 
