@@ -17,6 +17,26 @@ const routes = [
     component: () => import('../views/Terms.vue'),
   },
   {
+    path: '/:preset/voca',
+    name: 'Voca',
+    component: () => import('../views/Voca.vue'),
+  },
+  {
+    path: '/:preset/quiz',
+    name: 'Quiz',
+    component: () => import('../views/Quiz.vue'),
+  },
+  {
+    path: '/:preset/grading',
+    name: 'Grading',
+    component: () => import('../views/Grading.vue'),
+  },
+  {
+    path: '/:preset/result',
+    name: 'Result',
+    component: () => import('../views/Result.vue'),
+  },
+  {
     path: '/:preset/submit',
     name: 'Submit',
     component: () => import('../views/Submit.vue'),

@@ -145,6 +145,7 @@ export default {
     agreedTerm2: false,
     selectedOption: null,
     participantID: '',
+    round: 0,
   }),
 
   computed: {
@@ -166,7 +167,7 @@ export default {
 
     submit() {
       this.updateFields(this.$data);
-      this.$router.push({ name: 'Intro' });
+      this.$router.push({ name: 'Quiz' });
     },
   },
 };

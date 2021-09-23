@@ -6,9 +6,6 @@
   >
     <v-list-item three-line>
       <v-list-item-content>
-        <div class="text-overline mb-4">
-          1.2 실험 내용 안내
-        </div>
         <v-list-item-title class="text-h5 mb-1 text-center">
           실험 내용 안내
         </v-list-item-title>
