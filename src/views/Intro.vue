@@ -1,0 +1,103 @@
+<template>
+  <v-card
+    class="mx-auto"
+    max-width="750"
+    outlined
+  >
+    <v-card-text>
+      <Textbox :value="textbox[page]" />
+
+      <div
+        class="px-3 py-5 body-1 text-center"
+      >
+        Noah 사진
+      </div>
+    </v-card-text>
+
+    <v-card-actions>
+      <v-btn
+        block
+        color="primary"
+        :disabled="disabled"
+        @click="submit"
+      >
+        준비됐어
+      </v-btn>
+    </v-card-actions>
+  </v-card>
+</template>
+
+<script>
+/* eslint-disable import/no-unresolved */
+import { setTimeout } from 'timers';
+import Textbox from './components/Textbox.vue';
+
+export default {
+  components: {
+    Textbox,
+  },
+  data: () => ({
+    disabled: true,
+    countDown: 4,
+    page: 0,
+    textbox: [[
+      '안녕? 반가워.',
+      '난 너의 친구, 노아라고 해.',
+    ], [
+      '오늘은 나와 같이',
+      '불어단어를 공부해보자.',
+    ], [
+      '내가 너에게 맞는 단어를 주면,',
+      '그걸 제한시간안에 푸는거야.',
+    ], [
+      '우선, 나랑 불어공부는',
+      '처음이니까 먼저 같이',
+      '연습문제를 풀어보자!',
+    ], [
+      '준비됐으면 \'준비됐어\'',
+      '버튼을 눌러줘.',
+    ]],
+  }),
+
+  computed: {
+    condition() {
+      return this.$store.state.data.experimentType;
+    },
+  },
+
+  mounted() {
+    this.countDownTimer();
+  },
+
+  methods: {
+    submit() {
+      this.$router.push({ name: 'Quiz' });
+    },
+
+    resetCount() {
+      this.countDown = 3;
+      this.countDownTimer();
+    },
+
+    countDownTimer() {
+      if (this.countDown > 0) {
+        setTimeout(() => {
+          this.countDown -= 1;
+          this.countDownTimer();
+        }, 1000);
+      } else {
+        this.next();
+      }
+    },
+
+    next() {
+      if (this.page >= this.textbox.length - 1) {
+        this.disabled = false;
+      } else {
+        this.page += 1;
+        this.resetCount();
+      }
+    },
+  },
+};
+</script>
