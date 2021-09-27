@@ -17,6 +17,11 @@ const routes = [
     component: () => import('../views/Terms.vue'),
   },
   {
+    path: '/:preset/ex',
+    name: 'Explanation',
+    component: () => import('../views/Explanation.vue'),
+  },
+  {
     path: '/:preset/voca',
     name: 'Voca',
     component: () => import('../views/Voca.vue'),

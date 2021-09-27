@@ -167,7 +167,7 @@ export default {
 
     submit() {
       this.updateFields(this.$data);
-      this.$router.push({ name: 'Quiz' });
+      this.$router.push({ name: 'Explanation' });
     },
   },
 };
