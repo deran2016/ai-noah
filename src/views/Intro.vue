@@ -5,7 +5,10 @@
     outlined
   >
     <v-card-text>
-      <Textbox :value="textbox[page]" />
+      <Textbox
+        :value="textbox[page]"
+        :counter="countDown"
+      />
 
       <div
         class="px-3 py-5 body-1 text-center"

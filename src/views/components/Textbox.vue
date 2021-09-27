@@ -6,6 +6,7 @@
     >
       {{ item }}<br />
     </span>
+    <small>{{ counter > 0 ? `(${counter})` : '' }}</small>
   </hgroup>
 </template>
 
@@ -17,6 +18,10 @@ export default {
       default() {
         return ['Oops, There is nothing!'];
       },
+    },
+    counter: {
+      type: Number,
+      default: 0,
     },
   },
 };
