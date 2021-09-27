@@ -115,7 +115,7 @@ export default {
       } else if (this.page === 1) {
         this.page += 1;
       } else {
-        this.$router.push({ name: 'Quiz' });
+        this.$router.push({ name: 'Intro' });
       }
     },
 
