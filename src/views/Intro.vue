@@ -12,7 +12,11 @@
       <div
         class="px-3 py-5 body-1 text-center"
       >
-        Noah 사진
+        <div style="width: 25%; margin: 0 auto">
+          <v-img
+            :src="require('@/assets/noah.png')"
+          />
+        </div>
       </div>
     </v-card-text>
 
