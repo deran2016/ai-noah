@@ -9,11 +9,18 @@
         단어 연습문제
       </div>
       <v-divider />
-      <div class="mx-2 my-3 body-1">
-        다음은 Noah와 함께 외워야 하는 단어 리스트입니다.<br />
-        1분동안 아래 단어를 외워주세요.
+      <Textbox
+        :value="textbox[round][page]"
+      />
+      <div
+        class="px-3 py-5 body-1 text-center"
+        style="width: 25%; margin: 0 auto"
+      >
+        <v-img
+          :src="require('@/assets/noah.png')"
+        />
       </div>
-      <v-divider />
+
       <v-simple-table
         class="elevation-1"
       >
@@ -31,7 +38,7 @@
           </thead>
           <tbody>
             <tr
-              v-for="(item, index) in words"
+              v-for="(item, index) in words[round]"
               :key="index"
             >
               <td class="text-center">
@@ -59,7 +66,7 @@
           암기 완료
         </v-btn>
         <span
-          style="font-size: 20px"
+          class="body-1"
         >
           {{ countDown }}초
         </span>
@@ -69,18 +76,29 @@
 </template>
 
 <script>
+/* eslint-disable import/no-unresolved */
+import { setTimeout } from 'timers';
+import Textbox from './components/Textbox.vue';
+
 export default {
+  components: {
+    Textbox,
+  },
   data: () => ({
     countDown: 60,
+    page: 0,
     headers: [{
       text: '단어', value: 'word', sortable: false, align: 'center',
     }, {
       text: '뜻', value: 'def', sortable: false, align: 'center',
     }],
-    words: [{
+    words: [[{
       word: 'pain',
       def: '빵',
-    }],
+    }]],
+    textbox: [[[
+      '20초 동안 단어를 외워보자!',
+    ]]],
   }),
 
   computed: {

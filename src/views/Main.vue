@@ -84,7 +84,7 @@ export default {
 
   methods: {
     submit() {
-      this.$router.push({ name: 'Quiz' });
+      this.$router.push({ name: 'Voca' });
     },
 
     countDownTimer() {
