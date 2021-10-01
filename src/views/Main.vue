@@ -5,8 +5,17 @@
     outlined
   >
     <v-card-text>
+      <div class="title text-center">
+        {{ infos[round].title }}
+      </div>
+      <div class="subtitle-1 text-center">
+        문제 수: {{ infos[round].wordCount }}
+      </div>
+      <div class="subtitle-1 text-center">
+        공부시간: {{ infos[round].time }}
+      </div>
       <Textbox
-        :value="textbox[page]"
+        :value="textbox[round][page]"
       />
 
       <div
@@ -25,10 +34,9 @@
         block
         color="primary"
         :disabled="disabled"
-        @click="next()"
+        @click="submit()"
       >
-        {{ page === textbox.length - 1 ? '준비됐어' : '다음' }}
-        {{ countDown > 0 ? `(${countDown})` : '' }}
+        공부 시작하기 {{ countDown > 0 ? `(${countDown})` : '' }}
       </v-btn>
     </v-card-actions>
   </v-card>
@@ -44,25 +52,18 @@ export default {
     Textbox,
   },
   data: () => ({
-    countDown: 4,
+    countDown: 5,
+    infos: [{
+      title: '튜토리얼',
+      wordCount: 2,
+      time: '1분',
+    }],
     page: 0,
-    textbox: [[
-      '안녕? 반가워.',
-      '난 너의 친구, 노아라고 해.',
-    ], [
-      '오늘은 나와 같이',
-      '불어단어를 공부해보자.',
-    ], [
-      '내가 너에게 맞는 단어를 주면,',
-      '그걸 제한시간안에 푸는거야.',
-    ], [
-      '우선, 나랑 불어공부는',
-      '처음이니까 먼저 같이',
-      '연습문제를 풀어보자!',
-    ], [
-      '준비됐으면 \'준비됐어\'',
-      '버튼을 눌러줘.',
-    ]],
+    textbox: [[[
+      '자, 연습문제를 풀어보자!',
+      '30초 동안 단어를 외워보자.',
+      '준비됐으면 아래 버튼을 눌러줘.',
+    ]]],
   }),
 
   computed: {
@@ -72,6 +73,9 @@ export default {
     disabled() {
       return this.countDown > 0;
     },
+    round() {
+      return this.$store.state.data.round || 0;
+    },
   },
 
   mounted() {
@@ -80,12 +84,7 @@ export default {
 
   methods: {
     submit() {
-      this.$router.push({ name: 'Main' });
-    },
-
-    resetCount() {
-      this.countDown = 3;
-      this.countDownTimer();
+      this.$router.push({ name: 'Quiz' });
     },
 
     countDownTimer() {
@@ -94,15 +93,6 @@ export default {
           this.countDown -= 1;
           this.countDownTimer();
         }, 1000);
-      }
-    },
-
-    next() {
-      if (this.page >= this.textbox.length - 1) {
-        this.submit();
-      } else {
-        this.page += 1;
-        this.resetCount();
       }
     },
   },

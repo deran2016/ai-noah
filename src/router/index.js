@@ -27,6 +27,11 @@ const routes = [
     component: () => import('../views/Intro.vue'),
   },
   {
+    path: '/:preset/main',
+    name: 'Main',
+    component: () => import('../views/Main.vue'),
+  },
+  {
     path: '/:preset/voca',
     name: 'Voca',
     component: () => import('../views/Voca.vue'),
