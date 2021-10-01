@@ -7,7 +7,6 @@
     <v-card-text>
       <Textbox
         :value="textbox[page]"
-        :counter="countDown"
       />
 
       <div
@@ -22,9 +21,10 @@
         block
         color="primary"
         :disabled="disabled"
-        @click="submit"
+        @click="next()"
       >
-        준비됐어
+        {{ page === textbox.length - 1 ? '준비됐어' : '다음' }}
+        {{ countDown > 0 ? `(${countDown})` : '' }}
       </v-btn>
     </v-card-actions>
   </v-card>
@@ -40,7 +40,6 @@ export default {
     Textbox,
   },
   data: () => ({
-    disabled: true,
     countDown: 4,
     page: 0,
     textbox: [[
@@ -66,6 +65,9 @@ export default {
     condition() {
       return this.$store.state.data.experimentType;
     },
+    disabled() {
+      return this.countDown > 0;
+    },
   },
 
   mounted() {
@@ -88,14 +90,12 @@ export default {
           this.countDown -= 1;
           this.countDownTimer();
         }, 1000);
-      } else {
-        this.next();
       }
     },
 
     next() {
       if (this.page >= this.textbox.length - 1) {
-        this.disabled = false;
+        this.submit();
       } else {
         this.page += 1;
         this.resetCount();
