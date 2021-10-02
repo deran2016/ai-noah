@@ -117,7 +117,7 @@ export default {
       '이제 문제를 풀어보자!',
       '내가 문제를 내볼게.',
       '준비됐어?',
-    ]]],
+    ]], []],
     quizIndex: 0,
     selected: '',
     quiz: {
@@ -135,6 +135,12 @@ export default {
         answers: ['한국', '중국', '일본'],
         answer: '한국',
       },
+    ], [
+      {
+        question: '',
+        answers: ['', '', ''],
+        answer: '',
+      },
     ]],
     answers: [],
     submitData: [],
@@ -150,7 +156,7 @@ export default {
     },
 
     round() {
-      return this.$store.state.data.round || 0;
+      return this.$route.query.round || 0;
     },
   },
 
@@ -167,7 +173,7 @@ export default {
     submit() {
       this.$set(this.submitData, `round${this.round}`, { answers: this.answers });
       this.updateFields(this.submitData);
-      this.$router.push({ name: 'Grading' });
+      this.$router.push({ name: 'Grading', query: { round: this.round } });
     },
 
     shuffleArr(arr) {

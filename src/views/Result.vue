@@ -90,7 +90,7 @@ export default {
     },
 
     round() {
-      return this.$store.state.data.round || 0;
+      return this.$route.query.round || 0;
     },
 
     result() {
@@ -104,7 +104,7 @@ export default {
 
   methods: {
     submit() {
-      this.$router.push({ name: 'Voca' });
+      this.$router.push({ name: 'Voca', query: { round: this.round } });
     },
 
     countDownTimer() {

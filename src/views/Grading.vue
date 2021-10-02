@@ -28,6 +28,10 @@ export default {
     condition() {
       return this.$store.state.data.experimentType;
     },
+
+    round() {
+      return this.$route.query.round || 0;
+    },
   },
 
   mounted() {
@@ -36,7 +40,7 @@ export default {
 
   methods: {
     submit() {
-      this.$router.push({ name: 'Result' });
+      this.$router.push({ name: 'Result', query: { round: this.round } });
     },
 
     countDownTimer() {

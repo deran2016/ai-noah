@@ -70,11 +70,13 @@ export default {
     condition() {
       return this.$store.state.data.experimentType;
     },
+
     disabled() {
       return this.countDown > 0;
     },
+
     round() {
-      return this.$store.state.data.round || 0;
+      return this.$route.query.round || 0;
     },
   },
 
@@ -84,7 +86,7 @@ export default {
 
   methods: {
     submit() {
-      this.$router.push({ name: 'Voca' });
+      this.$router.push({ name: 'Voca', query: { round: this.round } });
     },
 
     countDownTimer() {

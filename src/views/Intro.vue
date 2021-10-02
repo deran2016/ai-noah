@@ -69,6 +69,7 @@ export default {
     condition() {
       return this.$store.state.data.experimentType;
     },
+
     disabled() {
       return this.countDown > 0;
     },
