@@ -68,7 +68,7 @@
         <span
           class="body-1"
         >
-          {{ countDown }}초
+          {{ getTime(countDown) }}
         </span>
       </v-col>
     </v-card-actions>
@@ -154,6 +154,12 @@ export default {
       if (answer !== myanswer) color = 'red';
       else color = 'green';
       return color;
+    },
+
+    getTime(time) {
+      const min = parseInt((time % 3600) / 60, 10);
+      const sec = time % 60;
+      return min > 0 ? `${min}분 ${sec}초` : `${sec}초`;
     },
   },
 };
