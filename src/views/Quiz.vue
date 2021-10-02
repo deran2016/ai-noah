@@ -137,9 +137,9 @@ export default {
       },
     ], [
       {
-        question: '',
-        answers: ['', '', ''],
-        answer: '',
+        question: '라운드1입니다',
+        answers: ['정답', '오답', '오답'],
+        answer: '정답',
       },
     ]],
     answers: [],
