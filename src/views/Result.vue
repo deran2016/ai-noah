@@ -9,9 +9,23 @@
         결과
       </div>
       <v-divider />
-      <div class="mx-2 my-3 body-1">
-        문제에 대한 결과가 아래와 같이 표시됩니다.<br />
-        버튼을 누르면 두번째 단어외우기 Tutorial로 넘어갑니다.
+      <div class="title text-center">
+        정답/100
+      </div>
+      <div class="mx-2 my-3 body-1 text-center">
+        본 세트에서는 단어 결과에 대한<br />
+        분석이 나타납니다.
+      </div>
+      <Textbox
+        :value="textbox[round][page]"
+      />
+      <div
+        class="px-3 py-5 body-1 text-center"
+        style="width: 40%; margin: 0 auto"
+      >
+        <v-img
+          :src="require('@/assets/noah.png')"
+        />
       </div>
       <v-divider />
       <v-simple-table
@@ -59,18 +73,34 @@
         block
         color="primary"
         :disabled="disabled"
-        @click="submit"
+        @click="next()"
       >
-        단어 외우러 가기 {{ countDown > 0 ? `(${countDown})` : '' }}
+        {{ page === textbox[round].length - 1 ? '단어 외우러 가기' : '다음' }}
+        {{ countDown > 0 ? `(${countDown})` : '' }}
       </v-btn>
     </v-card-actions>
   </v-card>
 </template>
 
 <script>
+/* eslint-disable import/no-unresolved */
+import Textbox from './components/Textbox.vue';
+
 export default {
+  components: {
+    Textbox,
+  },
+
   data: () => ({
-    countDown: 5,
+    countDown: 3,
+    page: 0,
+    textbox: [[[
+      '잘했어. 이렇게 하면 되는거야.',
+    ], [
+      '이제 첫번째 세트를 공부해볼까?',
+    ], [
+      '준비됐으면 아래 버튼을 눌러보자!',
+    ]]],
     headers: [{
       text: '문제', value: 'question', sortable: false, align: 'center',
     }, {
@@ -107,6 +137,11 @@ export default {
       this.$router.push({ name: 'Voca', query: { round: this.round } });
     },
 
+    resetCount() {
+      this.countDown = 3;
+      this.countDownTimer();
+    },
+
     countDownTimer() {
       if (this.countDown > 0) {
         setTimeout(() => {
@@ -121,6 +156,15 @@ export default {
       if (answer !== myanswer) color = 'red';
       else color = 'green';
       return color;
+    },
+
+    next() {
+      if (this.page >= this.textbox[this.round].length - 1) {
+        this.submit();
+      } else {
+        this.page += 1;
+        this.resetCount();
+      }
     },
   },
 };
