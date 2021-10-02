@@ -12,7 +12,7 @@
       <div
         class="px-3 py-5 body-1 text-center"
       >
-        <div style="width: 25%; margin: 0 auto">
+        <div style="width: 40%; margin: 0 auto">
           <v-img
             :src="require('@/assets/noah.png')"
           />
