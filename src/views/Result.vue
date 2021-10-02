@@ -10,7 +10,7 @@
       </div>
       <v-divider />
       <div class="title text-center">
-        정답/100
+        {{ `${correct.length * 10}/${result.answers.length * 10}` }}
       </div>
       <div class="mx-2 my-3 body-1 text-center">
         본 세트에서는 단어 결과에 대한<br />
@@ -125,6 +125,10 @@ export default {
 
     result() {
       return this.$store.state.data[`round${this.round}`] || 'No results';
+    },
+
+    correct() {
+      return this.result.answers.filter((item) => item.answer === item.myanswer);
     },
   },
 
