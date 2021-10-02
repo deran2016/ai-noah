@@ -30,7 +30,7 @@ export default {
     },
 
     round() {
-      return this.$route.query.round || 0;
+      return Number(this.$route.query.round) || 0;
     },
   },
 

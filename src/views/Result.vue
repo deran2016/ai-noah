@@ -75,7 +75,7 @@
         :disabled="disabled"
         @click="next()"
       >
-        {{ page === textbox[round].length - 1 ? '단어 외우러 가기' : '다음' }}
+        {{ page === textbox[round].length - 1 ? (round > 0 ? '다음 세트 풀기' : '단어 외우러 가기') : '다음' }}
         {{ countDown > 0 ? `(${countDown})` : '' }}
       </v-btn>
     </v-card-actions>
@@ -94,13 +94,19 @@ export default {
   data: () => ({
     countDown: 3,
     page: 0,
-    textbox: [[[
-      '잘했어. 이렇게 하면 되는거야.',
+    textbox: [[
+      [
+        '잘했어. 이렇게 하면 되는거야.',
+      ], [
+        '이제 첫번째 세트를 공부해볼까?',
+      ], [
+        '준비됐으면 아래 버튼을 눌러보자!',
+      ],
     ], [
-      '이제 첫번째 세트를 공부해볼까?',
-    ], [
-      '준비됐으면 아래 버튼을 눌러보자!',
-    ]]],
+      [
+        '정말 잘했어! 다음 공부도 화이팅하자.',
+      ],
+    ]],
     headers: [{
       text: '문제', value: 'question', sortable: false, align: 'center',
     }, {
@@ -120,7 +126,7 @@ export default {
     },
 
     round() {
-      return this.$route.query.round || 0;
+      return Number(this.$route.query.round) || 0;
     },
 
     result() {
@@ -138,7 +144,7 @@ export default {
 
   methods: {
     submit() {
-      this.$router.push({ name: 'Voca', query: { round: this.round } });
+      this.$router.push({ name: 'Main', query: { round: this.round + 1 } });
     },
 
     resetCount() {
@@ -164,7 +170,12 @@ export default {
 
     next() {
       if (this.page >= this.textbox[this.round].length - 1) {
-        this.submit();
+        if (this.round === 1) {
+          // eslint-disable-next-line no-alert
+          this.$router.push({ name: 'Submit' });
+        } else {
+          this.submit();
+        }
       } else {
         this.page += 1;
         this.resetCount();

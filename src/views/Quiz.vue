@@ -117,7 +117,11 @@ export default {
       '이제 문제를 풀어보자!',
       '내가 문제를 내볼게.',
       '준비됐어?',
-    ]], []],
+    ]], [[
+      '이제 문제를 풀어보자!',
+      '내가 문제를 낼테니,',
+      '맞는 단어를 골라줘.',
+    ]]],
     quizIndex: 0,
     selected: '',
     quiz: {
@@ -137,7 +141,7 @@ export default {
       },
     ], [
       {
-        question: '라운드1입니다',
+        question: '세트A 입니다',
         answers: ['정답', '오답', '오답'],
         answer: '정답',
       },
@@ -156,7 +160,7 @@ export default {
     },
 
     round() {
-      return this.$route.query.round || 0;
+      return Number(this.$route.query.round) || 0;
     },
   },
 

@@ -57,13 +57,23 @@ export default {
       title: '튜토리얼',
       wordCount: 2,
       time: '1분',
+    }, {
+      title: '세트A',
+      wordCount: 10,
+      time: '10분',
     }],
     page: 0,
-    textbox: [[[
-      '자, 연습문제를 풀어보자!',
-      '30초 동안 단어를 외워보자.',
-      '준비됐으면 아래 버튼을 눌러줘.',
-    ]]],
+    textbox: [[
+      [
+        '자, 연습문제를 풀어보자!', // Tutorial
+        '30초 동안 단어를 외워보자.',
+        '준비됐으면 아래 버튼을 눌러줘.',
+      ],
+    ], [
+      [
+        '준비됐어?', // Rount 1
+      ],
+    ]],
   }),
 
   computed: {
@@ -76,7 +86,7 @@ export default {
     },
 
     round() {
-      return this.$route.query.round || 0;
+      return Number(this.$route.query.round) || 0;
     },
   },
 

@@ -92,13 +92,27 @@ export default {
     }, {
       text: '뜻', value: 'def', sortable: false, align: 'center',
     }],
-    words: [[{
-      word: 'pain',
-      def: '빵',
-    }]],
-    textbox: [[[
-      '20초 동안 단어를 외워보자!',
-    ]]],
+    words: [[
+      {
+        word: 'pain',
+        def: '빵',
+      },
+    ], [
+      {
+        word: 'round1',
+        def: '세트1 단어',
+      },
+    ]],
+    textbox: [[
+      [
+        '20초 동안 단어를 외워보자!',
+      ],
+    ], [
+      [
+        '나와 함께 단어를 외워보자',
+        '10분 동안 외우는거야.',
+      ],
+    ]],
   }),
 
   computed: {
@@ -111,7 +125,7 @@ export default {
     },
 
     round() {
-      return this.$route.query.round || 0;
+      return Number(this.$route.query.round) || 0;
     },
   },
 
