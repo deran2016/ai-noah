@@ -94,18 +94,104 @@ export default {
     }],
     words: [[
       {
-        word: 'pain',
-        def: '빵',
+        word: 'Bonjour',
+        def: '안녕하세요',
+      },
+      {
+        word: 'Oui',
+        def: '네',
       },
     ], [
       {
-        word: 'round1',
-        def: '세트1 단어',
+        word: 'Merci',
+        def: '감사합니다',
+      },
+      {
+        word: 'Bonsoir',
+        def: '안녕히 주무세요',
+      },
+      {
+        word: 'Non',
+        def: '아니오',
+      },
+      {
+        word: 'Café',
+        def: '카페',
+      },
+      {
+        word: 'Entrée',
+        def: '입구',
+      },
+      {
+        word: 'Sortie',
+        def: '출구',
+      },
+      {
+        word: 'Université',
+        def: '대학교',
+      },
+      {
+        word: 'chaise',
+        def: '의자',
+      },
+      {
+        word: 'S\'il vous plaît',
+        def: '실례합니다',
+      },
+      {
+        word: 'maison',
+        def: '집',
+      },
+    ], [
+      {
+        word: 'métro',
+        def: '지하철',
+      },
+      {
+        word: 'thé',
+        def: '티, 차',
+      },
+      {
+        word: 'téléphone',
+        def: '전화',
+      },
+      {
+        word: 'toilette',
+        def: '화장실',
+      },
+      {
+        word: 'taxi',
+        def: '택시',
+      },
+      {
+        word: 'Excusez-moi',
+        def: '부탁합니다',
+      },
+      {
+        word: 'bonheur',
+        def: '행복',
+      },
+      {
+        word: 'auteur',
+        def: '작가',
+      },
+      {
+        word: 'ail',
+        def: '마늘',
+      },
+      {
+        word: 'saison',
+        def: '계절',
       },
     ]],
     textbox: [[
       [
-        '20초 동안 단어를 외워보자!',
+        '30초 동안 단어를 외워보자!',
+      ],
+    ], [
+      [
+        '나와 함께 단어를 외워보자',
+        '10분 동안 외우는거야.',
       ],
     ], [
       [
@@ -130,6 +216,11 @@ export default {
   },
 
   mounted() {
+    if (this.round === 0) {
+      this.countDown = 30;
+    } else {
+      this.countDown = 60 * 10;
+    }
     this.countDownTimer();
   },
 
@@ -139,13 +230,15 @@ export default {
     },
 
     countDownTimer() {
-      if (this.countDown > 0) {
-        setTimeout(() => {
-          this.countDown -= 1;
-          this.countDownTimer();
-        }, 1000);
-      } else {
-        this.submit();
+      if (this.$router.history.current.name === 'Voca') {
+        if (this.countDown > 0) {
+          setTimeout(() => {
+            this.countDown -= 1;
+            this.countDownTimer();
+          }, 1000);
+        } else {
+          this.submit();
+        }
       }
     },
 

@@ -56,9 +56,13 @@ export default {
     infos: [{
       title: '튜토리얼',
       wordCount: 2,
-      time: '1분',
+      time: '30초',
     }, {
       title: '세트A',
+      wordCount: 10,
+      time: '10분',
+    }, {
+      title: '세트B',
       wordCount: 10,
       time: '10분',
     }],
@@ -71,7 +75,11 @@ export default {
       ],
     ], [
       [
-        '준비됐어?', // Rount 1
+        '준비됐어?', // Round 1
+      ],
+    ], [
+      [
+        '준비됐어?', // Round 2
       ],
     ]],
   }),

@@ -75,7 +75,9 @@
         :disabled="disabled"
         @click="next()"
       >
-        {{ page === textbox[round].length - 1 ? (round > 0 ? '다음 세트 풀기' : '단어 외우러 가기') : '다음' }}
+        {{ page === textbox[round].length - 1 ?
+          (round > 0 ? (round === 2 ? '끝내기' : '다음 세트 풀기') : '단어 외우러 가기')
+          : '다음' }}
         {{ countDown > 0 ? `(${countDown})` : '' }}
       </v-btn>
     </v-card-actions>
@@ -101,6 +103,10 @@ export default {
         '이제 첫번째 세트를 공부해볼까?',
       ], [
         '준비됐으면 아래 버튼을 눌러보자!',
+      ],
+    ], [
+      [
+        '정말 잘했어! 다음 공부도 화이팅하자.',
       ],
     ], [
       [
@@ -170,7 +176,7 @@ export default {
 
     next() {
       if (this.page >= this.textbox[this.round].length - 1) {
-        if (this.round === 1) {
+        if (this.round === 2) {
           // eslint-disable-next-line no-alert
           this.$router.push({ name: 'Submit' });
         } else {

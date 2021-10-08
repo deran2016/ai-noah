@@ -121,6 +121,10 @@ export default {
       '이제 문제를 풀어보자!',
       '내가 문제를 낼테니,',
       '맞는 단어를 골라줘.',
+    ]], [[
+      '이제 문제를 풀어보자!',
+      '내가 문제를 낼테니,',
+      '맞는 단어를 골라줘.',
     ]]],
     quizIndex: 0,
     selected: '',
@@ -131,19 +135,115 @@ export default {
     },
     quizs: [[
       {
-        question: '지구',
-        answers: ['지구', '화성', '목성'],
-        answer: '지구',
+        question: '안녕하세요',
+        answers: ['Bonjour', 'Bonjore', 'Bonsoir'],
+        answer: 'Bonjour',
       }, {
-        question: '한국',
-        answers: ['한국', '중국', '일본'],
-        answer: '한국',
+        question: '네',
+        answers: ['Oi', 'Oui', 'Oei'],
+        answer: 'Oui',
       },
     ], [
       {
-        question: '세트A 입니다',
-        answers: ['정답', '오답', '오답'],
-        answer: '정답',
+        question: '감사합니다',
+        answers: ['Merci', 'Mersi', 'Mercie'],
+        answer: 'Merci',
+      },
+      {
+        question: '안녕히 주무세요',
+        answers: ['Bonjour', 'Bonjoir', 'Bonsoir'],
+        answer: 'Bonsoir',
+      },
+      {
+        question: '아니오',
+        answers: ['No', 'Non', 'None'],
+        answer: 'Non',
+      },
+      {
+        question: '카페',
+        answers: ['Cafée', 'Café', 'Cafe'],
+        answer: 'Café',
+      },
+      {
+        question: '입구',
+        answers: ['Entré', 'Entrée', 'Entree'],
+        answer: 'Entrée',
+      },
+      {
+        question: '출구',
+        answers: ['Sortie', 'Sortié', 'Sortiee'],
+        answer: 'Sortie',
+      },
+      {
+        question: '대학교',
+        answers: ['Universite', 'Universitée', 'Université'],
+        answer: 'Université',
+      },
+      {
+        question: '의자',
+        answers: ['chaire', 'chais', 'chaise'],
+        answer: 'chaise',
+      },
+      {
+        question: '실례합니다',
+        answers: ['Au revoir', 'Enchanté', 'S\'il vous plaît'],
+        answer: 'S\'il vous plaît',
+      },
+      {
+        question: '집',
+        answers: ['mason', 'maison', 'flèche'],
+        answer: 'maison',
+      },
+    ], [
+      {
+        question: '지하철',
+        answers: ['metro', 'métro', 'underground'],
+        answer: 'métro',
+      },
+      {
+        question: '티, 차',
+        answers: ['thé', 'téa', 'tea'],
+        answer: 'thé',
+      },
+      {
+        question: '전화',
+        answers: ['téléphone', 'teléphone', 'téléphono'],
+        answer: 'téléphone',
+      },
+      {
+        question: '화장실',
+        answers: ['toilet', 'toilett', 'toilette'],
+        answer: 'toilette',
+      },
+      {
+        question: '택시',
+        answers: ['cap', 'taxi', 'texi'],
+        answer: 'taxi',
+      },
+      {
+        question: '부탁합니다',
+        answers: ['Excusez-me', 'Excusez-moi', 'Excuse-moi'],
+        answer: 'Excusez-moi',
+      },
+      {
+        question: '행복',
+        answers: ['bonheur', 'bonher', 'bonsoir'],
+        answer: 'bonheur',
+      },
+      {
+        question: '작가',
+        answers: ['auther', 'authur', 'auteur'],
+        answer: 'auteur',
+      },
+      {
+        question: '마늘',
+        answers: ['aile', 'ile', 'ail'],
+        answer: 'ail',
+      },
+      {
+        question: '계절',
+        answers: ['saision', 'saison', 'season'],
+        answer: 'saison',
       },
     ]],
     answers: [],
