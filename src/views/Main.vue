@@ -6,13 +6,13 @@
   >
     <v-card-text>
       <div class="title text-center">
-        {{ infos[round].title }}
+        {{ infos[(condition - 1) % 2][round].title }}
       </div>
       <div class="subtitle-1 text-center">
-        문제 수: {{ infos[round].wordCount }}
+        문제 수: {{ infos[(condition - 1) % 2][round].wordCount }}
       </div>
       <div class="subtitle-1 text-center">
-        공부시간: {{ infos[round].time }}
+        공부시간: {{ infos[(condition - 1) % 2][round].time }}
       </div>
       <Textbox
         :value="textbox[round][page]"
@@ -53,7 +53,7 @@ export default {
   },
   data: () => ({
     countDown: 5,
-    infos: [{
+    infos: [[{
       title: '튜토리얼',
       wordCount: 2,
       time: '30초',
@@ -65,7 +65,19 @@ export default {
       title: '세트B',
       wordCount: 10,
       time: '10분',
-    }],
+    }], [{
+      title: '튜토리얼',
+      wordCount: 2,
+      time: '30초',
+    }, {
+      title: '세트A',
+      wordCount: 35,
+      time: '6분',
+    }, {
+      title: '세트B',
+      wordCount: 35,
+      time: '6분',
+    }]],
     page: 0,
     textbox: [[
       [

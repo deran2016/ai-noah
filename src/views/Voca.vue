@@ -10,7 +10,7 @@
       </div>
       <v-divider />
       <Textbox
-        :value="textbox[round][page]"
+        :value="textbox[(condition - 1) % 2][round][page]"
       />
       <div
         class="px-3 py-5 body-1 text-center"
@@ -38,7 +38,7 @@
           </thead>
           <tbody>
             <tr
-              v-for="(item, index) in words[round]"
+              v-for="(item, index) in words[(condition - 1) % 2][round]"
               :key="index"
             >
               <td class="text-center">
@@ -92,7 +92,7 @@ export default {
     }, {
       text: '뜻', value: 'def', sortable: false, align: 'center',
     }],
-    words: [[
+    words: [[[
       {
         word: 'Bonjour',
         def: '안녕하세요',
@@ -183,8 +183,299 @@ export default {
         word: 'saison',
         def: '계절',
       },
-    ]],
-    textbox: [[
+    ]], [[
+      {
+        word: 'Bonjour',
+        def: '안녕하세요',
+      },
+      {
+        word: 'Oui',
+        def: '네',
+      },
+    ], [
+      {
+        word: 'Merci',
+        def: '감사합니다',
+      },
+      {
+        word: 'prais',
+        def: '시원한',
+      },
+      {
+        word: 'Excusez-moi',
+        def: '부탁합니다',
+      },
+      {
+        word: 'Enchanté',
+        def: '처음 뵙겠습니다',
+      },
+      {
+        word: 'entrée',
+        def: '입구',
+      },
+      {
+        word: 'sortie',
+        def: '출구',
+      },
+      {
+        word: 'combien',
+        def: '(시간/거리/가격이) 얼마나',
+      },
+      {
+        word: 'chaise',
+        def: '의자',
+      },
+      {
+        word: 'S\'il vous plaît',
+        def: '실례합니다',
+      },
+      {
+        word: 'Au revoir',
+        def: '잘가',
+      },
+      {
+        word: 'amitié',
+        def: '우정',
+      },
+      {
+        word: 'neige',
+        def: '눈',
+      },
+      {
+        word: 'dire',
+        def: '말하다, 부탁하다',
+      },
+      {
+        word: 'sourire',
+        def: '미소',
+      },
+      {
+        word: 'parler',
+        def: '말하다, 알다',
+      },
+      {
+        word: 'se dire',
+        def: '생각하다',
+      },
+      {
+        word: 'savoir',
+        def: '알다',
+      },
+      {
+        word: 'penser',
+        def: '생각하다',
+      },
+      {
+        word: 'manger',
+        def: '식사하다',
+      },
+      {
+        word: 'arbre',
+        def: '나무',
+      },
+      {
+        word: 'savourer',
+        def: '맛보다, 음미하다',
+      },
+      {
+        word: 'prénom',
+        def: '이름',
+      },
+      {
+        word: 'aller',
+        def: '가다',
+      },
+      {
+        word: 'déguster',
+        def: '시음하다',
+      },
+      {
+        word: 'rideau',
+        def: '커튼',
+      },
+      {
+        word: 'bibliothèque',
+        def: '도서관',
+      },
+      {
+        word: 'dormir',
+        def: '자다',
+      },
+      {
+        word: 'mettre',
+        def: '입다',
+      },
+      {
+        word: 'connaître',
+        def: '알다, 구분하다',
+      },
+      {
+        word: 'venir',
+        def: '오다',
+      },
+      {
+        word: 'bondir',
+        def: '뛰다',
+      },
+      {
+        word: 'dérider',
+        def: '근심을 덜다',
+      },
+      {
+        word: 'désunir',
+        def: '가르다, 구분하다',
+      },
+      {
+        word: 'Bienvenue',
+        def: '어서오세요',
+      },
+      {
+        word: 'métier',
+        def: '직업',
+      },
+    ], [
+      {
+        word: 'raffine',
+        def: '세련된',
+      },
+      {
+        word: 'tendresse',
+        def: '부드러움, 유연함',
+      },
+      {
+        word: 'étranger',
+        def: '해외의',
+      },
+      {
+        word: 'lisse',
+        def: '부드럽게 하다, 윤기나게 하다',
+      },
+      {
+        word: 'réconforté',
+        def: '격려하다',
+      },
+      {
+        word: 'fêter',
+        def: '축하하다',
+      },
+      {
+        word: 'joyeux',
+        def: '즐거운',
+      },
+      {
+        word: 'heureux',
+        def: '행복한',
+      },
+      {
+        word: 'poisson',
+        def: '생선',
+      },
+      {
+        word: 'fraise',
+        def: '딸기',
+      },
+      {
+        word: 'rideau',
+        def: '커튼',
+      },
+      {
+        word: 'quelque',
+        def: '다소',
+      },
+      {
+        word: 'fenêtre',
+        def: '창문',
+      },
+      {
+        word: 'chambre',
+        def: '침실',
+      },
+      {
+        word: 'étage',
+        def: '층',
+      },
+      {
+        word: 'premier',
+        def: '첫번째',
+      },
+      {
+        word: 'derrière',
+        def: '~의 뒤에',
+      },
+      {
+        word: 'ranger',
+        def: '정리하다',
+      },
+      {
+        word: 'assez',
+        def: '충분히, 꽤',
+      },
+      {
+        word: 'beurre',
+        def: '버터',
+      },
+      {
+        word: 'jouer',
+        def: '놀다, 장난하다',
+      },
+      {
+        word: 'l\'avant',
+        def: '~의 앞에',
+      },
+      {
+        word: 'laver',
+        def: '씻다',
+      },
+      {
+        word: 'alimentaire',
+        def: '음식의, 영양의',
+      },
+      {
+        word: 'verrière',
+        def: '창문',
+      },
+      {
+        word: 'bonheur',
+        def: '행복',
+      },
+      {
+        word: 'poubelle',
+        def: '쓰레기통',
+      },
+      {
+        word: 'quelqu\'un',
+        def: '누군가',
+      },
+      {
+        word: 'inquiéter',
+        def: '불안해하다',
+      },
+      {
+        word: 'réjouir',
+        def: '기쁘게하다',
+      },
+      {
+        word: 'féliciter',
+        def: '만족해하다, 기뻐하다',
+      },
+      {
+        word: 'défaire',
+        def: '해체하다',
+      },
+      {
+        word: 'misère',
+        def: '불행',
+      },
+      {
+        word: 'dernier',
+        def: '마지막의',
+      },
+      {
+        word: 'cuiller',
+        def: '숟가락',
+      },
+    ]]],
+    textbox: [[[
       [
         '30초 동안 단어를 외워보자!',
       ],
@@ -198,7 +489,21 @@ export default {
         '나와 함께 단어를 외워보자',
         '10분 동안 외우는거야.',
       ],
-    ]],
+    ]], [[
+      [
+        '30초 동안 단어를 외워보자!',
+      ],
+    ], [
+      [
+        '나와 함께 단어를 외워보자',
+        '6분 동안 외우는 거야.',
+      ],
+    ], [
+      [
+        '나와 함께 단어를 외워보자',
+        '6분 동안 외우는 거야.',
+      ],
+    ]]],
   }),
 
   computed: {
@@ -216,17 +521,31 @@ export default {
   },
 
   mounted() {
-    if (this.round === 0) {
-      this.countDown = 30;
-    } else {
-      this.countDown = 60 * 10;
-    }
+    this.countDown = this.setCountDown();
     this.countDownTimer();
   },
 
   methods: {
     submit() {
       this.$router.push({ name: 'Quiz', query: { round: this.round } });
+    },
+
+    setCountDown() {
+      let countDown;
+      if (this.condition === '1' || this.condition === '3') {
+        if (this.round === 0) {
+          countDown = 30; // 30 seconds
+        } else if (this.round > 0) {
+          countDown = 60 * 10; // 10 minutes
+        }
+      } else if (this.condition === '2' || this.condition === '4') {
+        if (this.round === 0) {
+          countDown = 30; // 30 seconds
+        } else if (this.round > 0) {
+          countDown = 60 * 6; // 6 minutes
+        }
+      }
+      return countDown;
     },
 
     countDownTimer() {
