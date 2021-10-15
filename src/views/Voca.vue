@@ -59,7 +59,7 @@
       <v-col>
         <v-btn
           class="mx-5"
-          width="65%"
+          width="40%"
           color="primary"
           @click="submit"
         >
