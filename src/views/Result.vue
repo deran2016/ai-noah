@@ -13,8 +13,12 @@
         {{ `${correct.length * 10}/${result.answers.length * 10}` }}
       </div>
       <div class="mx-2 my-3 body-1 text-center">
-        본 세트에서는 단어 결과에 대한<br />
-        분석이 나타납니다.
+        <span
+          v-for="(item, key) in text"
+          :key="`text${key}`"
+        >
+          {{ item }}<br />
+        </span>
       </div>
       <Textbox
         :value="textbox[round][page]"
@@ -108,11 +112,11 @@ export default {
       ],
     ], [
       [
-        '정말 잘했어! 다음 공부도 화이팅하자.',
+        '정말 잘했어! 다음 공부도 파이팅하자.',
       ],
     ], [
       [
-        '정말 잘했어! 다음 공부도 화이팅하자.',
+        '정말 잘했어! 다음 공부도 파이팅하자.',
       ],
     ]],
     headers: [{
@@ -147,6 +151,16 @@ export default {
 
     correct() {
       return this.result.answers.filter((item) => item.answer === item.myanswer);
+    },
+
+    text() {
+      let str;
+      if (this.round === 0) {
+        str = ['본 세트에서는 단어 결과에 대한', '분석이 나타납니다.'];
+      } else {
+        str = ['당신의 단어 성적은', '같은 레벨의 사용자 중에서', '상위 10% 입니다.'];
+      }
+      return str;
     },
   },
 
