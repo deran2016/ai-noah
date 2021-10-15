@@ -66,7 +66,7 @@ export default {
   border-radius: .4em;
   text-align: center;
   padding: 20px;
-  width: 300px;
+  max-width: 300px;
 }
 
 .text-box:after {
