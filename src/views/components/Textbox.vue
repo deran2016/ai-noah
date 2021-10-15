@@ -1,12 +1,21 @@
 <template>
-  <hgroup class="text-box">
-    <span
-      v-for="(item, key) in value"
-      :key="key"
-    >
-      {{ item }}<br />
-    </span>
-  </hgroup>
+  <div
+    style="height: 90px"
+  >
+    <v-slide-y-reverse-transition>
+      <hgroup
+        v-show="showing"
+        class="text-box"
+      >
+        <span
+          v-for="(item, key) in items"
+          :key="key"
+        >
+          {{ item }}<br />
+        </span>
+      </hgroup>
+    </v-slide-y-reverse-transition>
+  </div>
 </template>
 
 <script>
@@ -19,6 +28,33 @@ export default {
       },
     },
   },
+
+  data: () => ({
+    showing: false,
+    items: [],
+  }),
+
+  watch: {
+    value() {
+      if (this.items[0] !== this.value[0]) {
+        console.log(this.items !== this.value);
+        console.log(this.items);
+        console.log(this.value);
+        this.showing = false;
+        setTimeout(() => {
+          this.items = this.value;
+          this.showing = true;
+        }, 500);
+      }
+    },
+  },
+
+  mounted() {
+    this.items = this.value;
+    setTimeout(() => {
+      this.showing = true;
+    }, 700);
+  },
 };
 </script>
 
@@ -29,7 +65,8 @@ export default {
   background: rgb(226, 226, 226);
   border-radius: .4em;
   text-align: center;
-  padding: 6px;
+  padding: 20px;
+  width: 300px;
 }
 
 .text-box:after {
