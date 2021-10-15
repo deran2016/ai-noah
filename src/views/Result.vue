@@ -49,11 +49,17 @@
               :key="index"
             >
               <td class="text-center">
-                {{ item.question }}
+                <v-chip
+                  :color="getColor(item.answer, item.myanswer)"
+                  dark
+                >
+                  {{ item.answer }}
+                </v-chip>
               </td>
               <td class="text-center">
-                {{ item.answer }}
+                {{ item.question }}
               </td>
+              <!--
               <td class="text-center">
                 <v-chip
                   :color="getColor(item.answer, item.myanswer)"
@@ -62,6 +68,7 @@
                   {{ item.myanswer }}
                 </v-chip>
               </td>
+              -->
             </tr>
           </tbody>
         </template>
@@ -114,12 +121,16 @@ export default {
       ],
     ]],
     headers: [{
-      text: '문제', value: 'question', sortable: false, align: 'center',
+      text: '단어', value: 'answer', sortable: false, align: 'center',
     }, {
-      text: '정답', value: 'answer', sortable: false, align: 'center',
-    }, {
+      text: '뜻', value: 'question', sortable: false, align: 'center',
+    },
+    /*
+    {
       text: '내가 쓴 정답', value: 'myanswer', sortable: false, align: 'center',
-    }],
+    }
+    */
+    ],
   }),
 
   computed: {
