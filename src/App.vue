@@ -17,7 +17,7 @@
             style="max-width: 800px;"
           >
             <v-fade-transition mode="out-in">
-              <router-view />
+              <router-view :key="$route.fullPath" />
             </v-fade-transition>
           </v-col>
         </v-row>
