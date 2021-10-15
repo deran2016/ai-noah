@@ -1,6 +1,6 @@
 <template>
   <div
-    style="height: 90px"
+    style="min-height: 90px;"
   >
     <v-slide-y-reverse-transition>
       <hgroup
