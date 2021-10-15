@@ -49,12 +49,7 @@
               :key="index"
             >
               <td class="text-center">
-                <v-chip
-                  :color="getColor(item.answer, item.myanswer)"
-                  dark
-                >
-                  {{ item.answer }}
-                </v-chip>
+                {{ item.answer }}
               </td>
               <td class="text-center">
                 {{ item.question }}
