@@ -27,6 +27,11 @@ const routes = [
     component: () => import('../views/Intro.vue'),
   },
   {
+    path: '/:preset/practice',
+    name: 'Practice',
+    component: () => import('../views/Practice.vue'),
+  },
+  {
     path: '/:preset/main',
     name: 'Main',
     component: () => import('../views/Main.vue'),
