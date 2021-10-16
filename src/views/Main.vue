@@ -60,11 +60,11 @@ export default {
     }, {
       title: '세트A',
       wordCount: 10,
-      time: '10분',
+      time: '3분',
     }, {
       title: '세트B',
       wordCount: 10,
-      time: '10분',
+      time: '3분',
     }], [{
       title: '튜토리얼',
       wordCount: 2,
@@ -72,11 +72,11 @@ export default {
     }, {
       title: '세트A',
       wordCount: 35,
-      time: '6분',
+      time: '3분',
     }, {
       title: '세트B',
       wordCount: 35,
-      time: '6분',
+      time: '3분',
     }]],
     page: 0,
     textbox: [[

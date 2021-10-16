@@ -536,13 +536,13 @@ export default {
         if (this.round === 0) {
           countDown = 30; // 30 seconds
         } else if (this.round > 0) {
-          countDown = 60 * 10; // 10 minutes
+          countDown = 60 * 3; // 3 minutes
         }
       } else if (this.condition === '2' || this.condition === '4') {
         if (this.round === 0) {
           countDown = 30; // 30 seconds
         } else if (this.round > 0) {
-          countDown = 60 * 6; // 6 minutes
+          countDown = 60 * 3; // 3 minutes
         }
       }
       return countDown;
