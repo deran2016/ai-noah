@@ -103,7 +103,7 @@ export default {
 
   methods: {
     submit() {
-      this.$router.push({ name: 'Main' });
+      this.$router.push({ name: 'Practice' });
     },
 
     resetCount() {
