@@ -194,14 +194,6 @@ export default {
       },
     ], [
       {
-        word: 'Merci',
-        def: '감사합니다',
-      },
-      {
-        word: 'prais',
-        def: '시원한',
-      },
-      {
         word: 'Excusez-moi',
         def: '부탁합니다',
       },
@@ -218,10 +210,6 @@ export default {
         def: '출구',
       },
       {
-        word: 'combien',
-        def: '(시간/거리/가격이) 얼마나',
-      },
-      {
         word: 'chaise',
         def: '의자',
       },
@@ -232,14 +220,6 @@ export default {
       {
         word: 'Au revoir',
         def: '잘가',
-      },
-      {
-        word: 'amitié',
-        def: '우정',
-      },
-      {
-        word: 'neige',
-        def: '눈',
       },
       {
         word: 'dire',
@@ -278,10 +258,6 @@ export default {
         def: '맛보다, 음미하다',
       },
       {
-        word: 'prénom',
-        def: '이름',
-      },
-      {
         word: 'aller',
         def: '가다',
       },
@@ -292,10 +268,6 @@ export default {
       {
         word: 'rideau',
         def: '커튼',
-      },
-      {
-        word: 'bibliothèque',
-        def: '도서관',
       },
       {
         word: 'dormir',
@@ -314,24 +286,12 @@ export default {
         def: '오다',
       },
       {
-        word: 'bondir',
-        def: '뛰다',
-      },
-      {
         word: 'dérider',
         def: '근심을 덜다',
       },
       {
-        word: 'désunir',
-        def: '가르다, 구분하다',
-      },
-      {
         word: 'Bienvenue',
         def: '어서오세요',
-      },
-      {
-        word: 'métier',
-        def: '직업',
       },
     ], [
       {
@@ -341,10 +301,6 @@ export default {
       {
         word: 'tendresse',
         def: '부드러움, 유연함',
-      },
-      {
-        word: 'étranger',
-        def: '해외의',
       },
       {
         word: 'lisse',
@@ -391,10 +347,6 @@ export default {
         def: '침실',
       },
       {
-        word: 'étage',
-        def: '층',
-      },
-      {
         word: 'premier',
         def: '첫번째',
       },
@@ -405,14 +357,6 @@ export default {
       {
         word: 'ranger',
         def: '정리하다',
-      },
-      {
-        word: 'assez',
-        def: '충분히, 꽤',
-      },
-      {
-        word: 'beurre',
-        def: '버터',
       },
       {
         word: 'jouer',
@@ -427,10 +371,6 @@ export default {
         def: '씻다',
       },
       {
-        word: 'alimentaire',
-        def: '음식의, 영양의',
-      },
-      {
         word: 'verrière',
         def: '창문',
       },
@@ -443,32 +383,12 @@ export default {
         def: '쓰레기통',
       },
       {
-        word: 'quelqu\'un',
-        def: '누군가',
-      },
-      {
-        word: 'inquiéter',
-        def: '불안해하다',
-      },
-      {
         word: 'réjouir',
         def: '기쁘게하다',
       },
       {
         word: 'féliciter',
         def: '만족해하다, 기뻐하다',
-      },
-      {
-        word: 'défaire',
-        def: '해체하다',
-      },
-      {
-        word: 'misère',
-        def: '불행',
-      },
-      {
-        word: 'dernier',
-        def: '마지막의',
       },
       {
         word: 'cuiller',

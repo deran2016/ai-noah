@@ -258,11 +258,6 @@ export default {
       },
     ], [
       {
-        question: '직업',
-        answers: ['flèche', 'mettre', 'métier', 'amitié'],
-        answer: 'métier',
-      },
-      {
         question: '부탁합니다',
         answers: ['Excues-moi', 'Excusez-moi', 'Excuses-moi', 'Excuze-moi'],
         answer: 'Excusez-moi',
@@ -281,16 +276,6 @@ export default {
         question: '잘가',
         answers: ['Bonsoir', 'Au revoir', 'bientet', 'salute'],
         answer: 'Au revoir',
-      },
-      {
-        question: '(시간/거리/가격이) 얼마나',
-        answers: ['connaitre', 'combién', 'connaître', 'combien'],
-        answer: 'combien',
-      },
-      {
-        question: '도서관',
-        answers: ['bibliothèque', 'biblotèque', 'bibliotèque', 'bibliotèquo'],
-        answer: 'bibliothèque',
       },
       {
         question: '나무',
@@ -323,11 +308,6 @@ export default {
         answer: 'déguster',
       },
       {
-        question: '이름',
-        answers: ['pénom', 'prénom', 'pérnom', 'penom'],
-        answer: 'prénom',
-      },
-      {
         question: '가다',
         answers: ['alle', 'allere', 'aller', 'ellar'],
         answer: 'aller',
@@ -336,11 +316,6 @@ export default {
         question: '말하다, 부탁하다',
         answers: ['demain', 'dire', 'tard', 'revir'],
         answer: 'dire',
-      },
-      {
-        question: '우정',
-        answers: ['amitié', 'amitiés', 'raffine', 'suite'],
-        answer: 'amitié',
       },
       {
         question: '처음 뵙겠습니다',
@@ -368,21 +343,6 @@ export default {
         answer: 'S\'il vous plaît',
       },
       {
-        question: '가르다, 구분하다',
-        answers: ['dèrider', 'derider', 'désunir', 'dèsunir'],
-        answer: 'désunir',
-      },
-      {
-        question: '감사합니다',
-        answers: ['Merci', 'Mersi', 'Mercie', 'Mersie'],
-        answer: 'Merci',
-      },
-      {
-        question: '눈',
-        answers: ['nuevo', 'neige', 'tout de', 'bientot'],
-        answer: 'neige',
-      },
-      {
         question: '어서오세요',
         answers: ['Enchanté', 'Bienvanue', 'Enchante', 'Bienvenue'],
         answer: 'Bienvenue',
@@ -408,19 +368,9 @@ export default {
         answer: 'penser',
       },
       {
-        question: '시원한',
-        answers: ['praise', 'prais', 'prise', 'puise'],
-        answer: 'prais',
-      },
-      {
         question: '알다',
         answers: ['tard', 'savoir', 'combien', 'combién'],
         answer: 'savoir',
-      },
-      {
-        question: '뛰다',
-        answers: ['bondlr', 'sourie', 'sourire', 'bondir'],
-        answer: 'bondir',
       },
       {
         question: '오다',
@@ -467,11 +417,6 @@ export default {
         question: '창문',
         answers: ['tiroir', 'fenetre', 'verrière', 'verriêru'],
         answer: 'verrière',
-      },
-      {
-        question: '버터',
-        answers: ['burre', 'beurr', 'buerre', 'beurre'],
-        answer: 'beurre',
       },
       {
         question: '놀다, 장난하다',
@@ -539,29 +484,9 @@ export default {
         answer: 'féliciter',
       },
       {
-        question: '음식의, 영양의',
-        answers: ['alimantaire', 'alimentaire', 'derrière', 'derriere'],
-        answer: 'alimentaire',
-      },
-      {
         question: '딸기',
         answers: ['fraise', 'verry', 'berri', 'fêter'],
         answer: 'fraise',
-      },
-      {
-        question: '불행',
-        answers: ['misere', 'bonhéur', 'bonheur', 'misère'],
-        answer: 'misère',
-      },
-      {
-        question: '해체하다',
-        answers: ['inquiéter', 'défaire', 'defaire', 'inquieter'],
-        answer: 'défaire',
-      },
-      {
-        question: '누군가',
-        answers: ['quiqon\'ue', 'quiqonuen', 'quelqu\'un', 'plusieurs'],
-        answer: 'quelqu\'un',
       },
       {
         question: '축하하다',
@@ -584,29 +509,9 @@ export default {
         answer: 'l\'avant',
       },
       {
-        question: '마지막의',
-        answers: ['derniér', 'derriér', 'derrier', 'dernier'],
-        answer: 'dernier',
-      },
-      {
-        question: '불안해하다',
-        answers: ['inquiétur', 'inquiéter', 'inquietér', 'inquéiter'],
-        answer: 'inquiéter',
-      },
-      {
         question: '기쁘게하다',
         answers: ['réjouir', 'féliciter', 'feliciter', 'rejouir'],
         answer: 'réjouir',
-      },
-      {
-        question: '층',
-        answers: ['étage', 'sétage', 'etage', 'setage'],
-        answer: 'étage',
-      },
-      {
-        question: '충분히, 꽤',
-        answers: ['suffisante', 'assez', 'bientet', 'asseze'],
-        answer: 'assez',
       },
     ]]],
     answers: [],
