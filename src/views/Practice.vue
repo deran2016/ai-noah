@@ -71,7 +71,7 @@
         </div>
         <div class="my-1 body-2">
           <span
-            v-for="(item, key) in texts[section].contents.description"
+            v-for="(item, key) in texts[section].contents.description[ctnPage]"
             :key="`content${key}`"
           >
             {{ item }}<br />
@@ -122,6 +122,7 @@ export default {
     isTab: false,
     file: '',
     page: 0,
+    ctnPage: 0,
     countDown: 5,
     textbox: [
       [ // condition 1 & 2
@@ -147,8 +148,6 @@ export default {
             '같은데.. 어떨 때 다르게 쓰는지',
             '궁금해. 한 번 알아보자!',
           ],
-        ],
-        [ // Practice 1-1 (2)
           [
             '음.. 설명을 봐도 뭐가 다른지',
             '잘 모르겠어',
@@ -545,6 +544,7 @@ export default {
         contents: {
           title: 'e é è ê',
           isBox: true,
+          description: [],
         },
         active: true,
       },
@@ -556,32 +556,19 @@ export default {
         ],
         contents: {
           title: 'e',
-          description: [
+          description: [[
             '[ə][ɛ]',
             '\'e\'의 기본 발음',
             '\'으\', \'에\' 또는 \'애\'로 발음',
-          ],
-          isBox: true,
-        },
-        active: false,
-      },
-      { // Practice 1-1 (2)
-        title: 'Practice 1-1',
-        button: '다음',
-        description: [
-          '발음 및 단어를 누르면 발음을 들을 수 있어요',
-        ],
-        contents: {
-          title: 'e',
-          description: [
+          ], [
             'e[ə]는 단어 끝이나 글자',
             '사이에서 발음하며, e[ɛ]는',
             '발음되는 자음 앞, 연속되는',
             '두개의 자음 앞에서 사용',
-          ],
+          ]],
           isBox: true,
         },
-        active: true,
+        active: false,
       },
       { // Practice 1-1 (3)
         title: 'Practice 1-1',
@@ -605,6 +592,7 @@ export default {
               def: '작은',
             },
           ],
+          description: [],
           isBox: true,
         },
         active: false,
@@ -631,6 +619,7 @@ export default {
               def: '나머지',
             },
           ],
+          description: [],
           isBox: true,
         },
         active: false,
@@ -644,9 +633,9 @@ export default {
         contents: {
           title: 'é',
           subtitle: '악성 떼귀',
-          description: [
+          description: [[
             '영어의 [e]와 비슷한 발음',
-          ],
+          ]],
           isBox: true,
         },
         active: false,
@@ -659,11 +648,11 @@ export default {
         ],
         contents: {
           title: 'é [e]',
-          description: [
+          description: [[
             '악성 떼귀는 e에만 해당되며,',
             '단어 위치 구분 없이 모두 [e]로',
             '발음한다. 한국어의 [에]와 유사',
-          ],
+          ]],
           isBox: true,
         },
         active: false,
@@ -677,6 +666,7 @@ export default {
         contents: {
           title: 'étoile',
           subtitle: '별',
+          description: [],
           isBox: true,
         },
         active: false,
@@ -690,6 +680,7 @@ export default {
         contents: {
           title: 'étude',
           subtitle: '연습곡',
+          description: [],
           isBox: true,
         },
         active: false,
@@ -703,6 +694,7 @@ export default {
         contents: {
           title: 'étudier',
           subtitle: '공부하다',
+          description: [],
           isBox: true,
         },
         active: false,
@@ -716,10 +708,10 @@ export default {
         contents: {
           title: 'è',
           subtitle: '악상 그하브',
-          description: [
+          description: [[
             '낮은 음',
             '단어의 뜻 구분을 위해 사용',
-          ],
+          ]],
           isBox: true,
         },
         active: false,
@@ -733,11 +725,11 @@ export default {
         contents: {
           title: 'à, è, ù',
           subtitle: '악상 그하브',
-          description: [
+          description: [[
             '낮은 음',
             'a, e, u 에만 사용하며,',
             '단어의 뜻 구분을 위해 사용',
-          ],
+          ]],
           isBox: true,
         },
         active: false,
@@ -751,9 +743,9 @@ export default {
         contents: {
           title: 'ê',
           subtitle: '악성 씨콩플렉스',
-          description: [
+          description: [[
             '철자 위의 굽은 꺾쇠모양',
-          ],
+          ]],
           isBox: true,
         },
         active: false,
@@ -767,10 +759,10 @@ export default {
         contents: {
           title: 'â, ê, î, ô, û',
           subtitle: '악성 씨콩플렉스',
-          description: [
+          description: [[
             '특별한 발음없이 단어의 구분을',
             '위해 사용',
-          ],
+          ]],
           isBox: true,
         },
         active: false,
@@ -781,10 +773,10 @@ export default {
         button: '준비됐어',
         contents: {
           title: 'Toutes nos félicitations!',
-          description: [
+          description: [[
             '축하합니다!',
             '오늘 공부를 완료했어요.',
-          ],
+          ]],
           isBox: false,
         },
         active: true,
@@ -793,7 +785,6 @@ export default {
     audios: [
       '', // Practice Main
       'test', // Practice 1-1
-      'test', // Practice 1-1 (2)
       'test', // Practice 1-1 (3)
       'test', // Practice 1-1 (4)
       'test', // Practice 1-2
@@ -883,6 +874,9 @@ export default {
     },
 
     next() {
+      if (this.ctnPage < this.texts[this.section].contents.description.length - 1) {
+        this.ctnPage += 1;
+      }
       // eslint-disable-next-line radix
       if (this.page === this.textbox[parseInt((this.condition - 1) / 2)][this.section].length - 1) {
         this.routeNextSection();
