@@ -43,6 +43,14 @@
             >
               <td class="text-center">
                 {{ item.word }}
+                <v-btn
+                  icon
+                  color="green"
+                  :disabled="isPlaying"
+                  @click="playAudio(item.word)"
+                >
+                  <v-icon>mdi-volume-high</v-icon>
+                </v-btn>
               </td>
               <td class="text-center">
                 {{ item.def }}
@@ -85,6 +93,7 @@ export default {
     Textbox,
   },
   data: () => ({
+    isPlaying: false,
     countDown: 60,
     page: 0,
     headers: [{
@@ -492,6 +501,25 @@ export default {
       const min = parseInt((time % 3600) / 60, 10);
       const sec = time % 60;
       return min > 0 ? `${min}분 ${sec}초` : `${sec}초`;
+    },
+
+    playAudio(file) {
+      this.file = file;
+
+      const audio = document.getElementById(this.file);
+      try {
+        audio.play();
+        audio.onplaying = () => {
+          this.isPlaying = true;
+        };
+        audio.onended = () => {
+          this.isPlaying = false;
+        };
+      } catch (e) {
+        console.log(e);
+      } finally {
+        this.isPlaying = false;
+      }
     },
   },
 };
