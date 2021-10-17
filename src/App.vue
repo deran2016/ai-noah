@@ -5,6 +5,7 @@
         class="fill-height"
         fluid
       >
+        <MediaList />
         <v-row
           align="center"
           justify="center"
@@ -27,10 +28,14 @@
 </template>
 
 <script>
+/* eslint-disable import/no-unresolved */
+import MediaList from './view/components/MediaList.vue';
+
 export default {
   name: 'App',
 
   components: {
+    MediaList,
   },
 
   computed: {
