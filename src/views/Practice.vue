@@ -32,7 +32,7 @@
       <div
         class="my-4 text-center"
         :class="content[ctnPage].isBox ? 'content-box' : ''"
-        :style="!isPlaying && audios[section] ? 'cursor: pointer' : 'cursor: default'"
+        :style="!isPlaying && content[ctnPage].audio ? 'cursor: pointer' : 'cursor: default'"
         @click="!isPlaying ? tabCard() : 'disabled'"
       >
         <div
@@ -41,7 +41,7 @@
         >
           {{ content[ctnPage].title }}
           <v-btn
-            v-if="audios[section]"
+            v-if="content[ctnPage].audio"
             icon
             color="green"
             style="position: absolute !important;"
@@ -99,7 +99,7 @@
         v-if="isTab"
         block
         color="primary"
-        :disabled="disabled"
+        :disabled="disabled || isPlaying"
         @click="next()"
       >
         {{ content[ctnPage].button }}
@@ -209,6 +209,7 @@ export default {
             button: '다음',
             isBox: true,
             active: false,
+            audio: 'e',
           },
           {
             title: 'e',
@@ -239,6 +240,7 @@ export default {
             button: '다음',
             isBox: true,
             active: true,
+            audio: 'e',
           },
         ],
       },
@@ -291,6 +293,7 @@ export default {
             button: '다음',
             isBox: true,
             active: false,
+            audio: 'e-voca1',
           },
         ],
       },
@@ -345,6 +348,7 @@ export default {
             button: '다음',
             isBox: true,
             active: false,
+            audio: 'e-voca2',
           },
         ],
       },
@@ -397,6 +401,7 @@ export default {
             button: '다음',
             isBox: true,
             active: false,
+            audio: 'e-aigue',
           },
           {
             title: 'é [e]',
@@ -437,6 +442,7 @@ export default {
             button: '다음',
             isBox: true,
             active: false,
+            audio: 'e-aigue',
           },
         ],
       },
@@ -472,6 +478,7 @@ export default {
             button: '다음',
             isBox: true,
             active: false,
+            audio: 'etoile',
           },
         ],
       },
@@ -509,6 +516,7 @@ export default {
             button: '다음',
             isBox: true,
             active: false,
+            audio: 'etude',
           },
         ],
       },
@@ -548,6 +556,7 @@ export default {
             button: '다음',
             isBox: true,
             active: false,
+            audio: 'etudier',
           },
         ],
       },
@@ -605,6 +614,7 @@ export default {
             button: '다음',
             isBox: true,
             active: false,
+            audio: 'e-grave',
           },
           {
             title: 'à, è, ù',
@@ -679,6 +689,7 @@ export default {
             button: '다음',
             isBox: true,
             active: false,
+            audio: 'eau-grave',
           },
         ],
       },
@@ -729,6 +740,7 @@ export default {
             button: '다음',
             isBox: true,
             active: false,
+            audio: 'e-circonflexe',
           },
           {
             title: 'â, ê, î, ô, û',
@@ -770,6 +782,7 @@ export default {
             button: '다음',
             isBox: true,
             active: false,
+            audio: 'aeiou-circonflexe',
           },
         ],
       },
@@ -832,19 +845,6 @@ export default {
         ],
       },
     ],
-    audios: [
-      '', // Practice Main
-      'test', // Practice 1-1
-      'test', // Practice 1-1 (2)
-      'test', // Practice 1-1 (3)
-      'test', // Practice 1-2
-      'test', // Practice 1-2 (2)
-      'test', // Practice 1-2 (3)
-      'test', // Practice 1-2 (4)
-      'test', // Practice 1-3
-      'test', // Practice 1-4
-      '', // Practice 1 (Complete)
-    ],
   }),
 
   computed: {
@@ -889,8 +889,8 @@ export default {
     },
 
     tabCard() {
-      if (this.audios[this.section] && !this.isPlaying) {
-        this.playAudio(this.audios[this.section]);
+      if (this.content[this.ctnPage].audio && !this.isPlaying) {
+        this.playAudio(this.content[this.ctnPage].audio);
         // eslint-disable-next-line radix
         if (!this.page
           && this.content[this.ctnPage].textbox[parseInt((this.condition - 1) / 2)][1]) {
@@ -912,9 +912,23 @@ export default {
       this.countDownTimer();
     },
 
-    playAudio(audio) {
-      this.file = audio;
-      console.log(this.file);
+    playAudio(file) {
+      this.file = file;
+
+      const audio = document.getElementById(this.file);
+      try {
+        audio.play();
+        audio.onplaying = () => {
+          this.isPlaying = true;
+        };
+        audio.onended = () => {
+          this.isPlaying = false;
+        };
+      } catch (e) {
+        console.log(e);
+      } finally {
+        this.isPlaying = false;
+      }
     },
 
     routeNextSection() {

@@ -44,6 +44,17 @@ export default {
     common: [
       { id: 'Bonjour', src: '1-K3w6B4OiVWZGscl0E4COiEBOwCXGXSe' },
       { id: 'Oui', src: '1-IL_gLDkUhZs1-bplJWwqyuN3ve4mGHm' },
+      { id: 'e', src: '188iEgkju7kOx5aAXlI2aqtxMeugZqRex' },
+      { id: 'e-voca1', src: '13cC-V4t0y3o-mSXF7hiK19QiMMEfY8Up' },
+      { id: 'e-voca2', src: '13dMEwdjv8gS3nPOl9HUwflhNoZHqDI6f' },
+      { id: 'e-aigue', src: '13a1To3Gtnu4IaKmEmvwZoXt32fFLDAFd' },
+      { id: 'etoile', src: '13udYAySnVEaIs4VH2vBJJQWzYFc1rx6j' },
+      { id: 'etude', src: '14-IOZObd0hxeRUYaLclJpBOImf-GfbQ_' },
+      { id: 'etudier', src: '1472QXHQ55ojoDq3FCrpV5LikcSp-6Me4' },
+      { id: 'e-grave', src: '15GsMSkAFKJ79XVjZLnhNbklie2YTzsIp' },
+      { id: 'eau-grave', src: '1HanMVIGHNhlLzfPivV4Lpobeq9kjZk8k' },
+      { id: 'e-circonflexe', src: '1OKQ8DPb8uiDE54hv_SlfzBvDkdCGTsHf' },
+      { id: 'aeiou-circonflexe', src: '1cJijpQhOy-GqeQl-7_fvc2ryVq7cVeju' },
     ],
     positive: [
       { id: 'Merci', src: '1-H-5oG2z4FAg-KDWmnWQmNqWxieAb5mj' },
