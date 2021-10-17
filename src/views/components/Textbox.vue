@@ -27,9 +27,13 @@ export default {
         return ['Oops, There is nothing!'];
       },
     },
-    delay: {
+    response: {
       type: Number,
       default: 700,
+    },
+    delay: {
+      type: Number,
+      default: 500,
     },
   },
 
@@ -48,7 +52,7 @@ export default {
         setTimeout(() => {
           this.items = this.value;
           this.showing = true;
-        }, 500);
+        }, this.delay);
       }
     },
   },
@@ -57,7 +61,7 @@ export default {
     this.items = this.value;
     setTimeout(() => {
       this.showing = true;
-    }, this.delay);
+    }, this.response);
   },
 };
 </script>
