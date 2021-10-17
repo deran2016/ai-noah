@@ -14,6 +14,7 @@
       <div
         v-if="texts[section].title"
         class="my-2 title text-center"
+        style="font-weight: bold; color: black"
       >
         {{ texts[section].title }}
       </div>
@@ -29,13 +30,14 @@
         </span>
       </div>
       <div
-        class="my-4 content-box text-center"
+        class="my-4 text-center"
+        :class="texts[section].contents.isBox ? 'content-box' : ''"
         :style="!isPlaying && audios[section] ? 'cursor: pointer' : 'cursor: default'"
         @click="!isPlaying ? tabCard() : 'disabled'"
       >
         <div
           class="title"
-          style="font-size: 1.7em !important; color: black;"
+          style="font-size: 1.9em !important; color: black;"
         >
           {{ texts[section].contents.title }}
           <v-btn
@@ -56,6 +58,7 @@
           </span>
           <v-row
             v-if="texts[section].contents.examples"
+            style="font-size: 0.8em !important"
           >
             <v-col
               v-for="(item, key) in texts[section].contents.examples"
@@ -77,6 +80,8 @@
       </div>
       <Textbox
         :value="textbox[parseInt((condition - 1) / 2)][section][page]"
+        :delay="!isTab ? 2000 : 1000"
+        :response="!isTab ? 1000 : 500"
       />
       <div
         class="px-3 py-5 body-1 text-center"
@@ -314,7 +319,10 @@ export default {
           [
             '와! 오늘의 공부 끝! 어땠어? 오늘',
             '공부가 즐거운 시간이었으면',
-            '좋겠다. 이제 오늘 공부한걸',
+            '좋겠다.',
+          ],
+          [
+            '이제 오늘 공부한걸',
             '바탕으로 단어공부도 해보자!',
             '준비됐으면 ’준비됐어’를 눌러줘.',
           ],
@@ -536,6 +544,7 @@ export default {
         ],
         contents: {
           title: 'e é è ê',
+          isBox: true,
         },
         active: true,
       },
@@ -550,8 +559,9 @@ export default {
           description: [
             '[ə][ɛ]',
             '\'e\'의 기본 발음',
-            '\'으\', \'에\' 또는 \'애\'로 발',
+            '\'으\', \'에\' 또는 \'애\'로 발음',
           ],
+          isBox: true,
         },
         active: false,
       },
@@ -569,6 +579,7 @@ export default {
             '발음되는 자음 앞, 연속되는',
             '두개의 자음 앞에서 사용',
           ],
+          isBox: true,
         },
         active: true,
       },
@@ -594,6 +605,7 @@ export default {
               def: '작은',
             },
           ],
+          isBox: true,
         },
         active: false,
       },
@@ -619,6 +631,7 @@ export default {
               def: '나머지',
             },
           ],
+          isBox: true,
         },
         active: false,
       },
@@ -634,6 +647,7 @@ export default {
           description: [
             '영어의 [e]와 비슷한 발음',
           ],
+          isBox: true,
         },
         active: false,
       },
@@ -650,6 +664,7 @@ export default {
             '단어 위치 구분 없이 모두 [e]로',
             '발음한다. 한국어의 [에]와 유사',
           ],
+          isBox: true,
         },
         active: false,
       },
@@ -662,6 +677,7 @@ export default {
         contents: {
           title: 'étoile',
           subtitle: '별',
+          isBox: true,
         },
         active: false,
       },
@@ -674,6 +690,7 @@ export default {
         contents: {
           title: 'étude',
           subtitle: '연습곡',
+          isBox: true,
         },
         active: false,
       },
@@ -686,6 +703,7 @@ export default {
         contents: {
           title: 'étudier',
           subtitle: '공부하다',
+          isBox: true,
         },
         active: false,
       },
@@ -702,6 +720,7 @@ export default {
             '낮은 음',
             '단어의 뜻 구분을 위해 사용',
           ],
+          isBox: true,
         },
         active: false,
       },
@@ -719,6 +738,7 @@ export default {
             'a, e, u 에만 사용하며,',
             '단어의 뜻 구분을 위해 사용',
           ],
+          isBox: true,
         },
         active: false,
       },
@@ -734,6 +754,7 @@ export default {
           description: [
             '철자 위의 굽은 꺾쇠모양',
           ],
+          isBox: true,
         },
         active: false,
       },
@@ -750,6 +771,7 @@ export default {
             '특별한 발음없이 단어의 구분을',
             '위해 사용',
           ],
+          isBox: true,
         },
         active: false,
       },
@@ -758,11 +780,12 @@ export default {
         subtitle: 'Practice 1',
         button: '준비됐어',
         contents: {
-          subtitle: 'Toutes nos félicitations!',
+          title: 'Toutes nos félicitations!',
           description: [
             '축하합니다!',
             '오늘 공부를 완료했어요.',
           ],
+          isBox: false,
         },
         active: true,
       },
@@ -824,17 +847,19 @@ export default {
     },
 
     tabCard() {
-      if (this.audios[this.section]) {
-        this.isTab = true;
-        this.isCounting = false;
+      if (this.audios[this.section] && !this.isPlaying) {
         this.playAudio(this.audios[this.section]);
         // eslint-disable-next-line radix
         if (!this.page && this.textbox[parseInt((this.condition - 1) / 2)][this.section][1]) {
           this.page = 1;
         }
-        setTimeout(() => {
-          this.resetCount(3);
-        }, 500);
+        if (!this.isTab) {
+          this.isTab = true;
+          this.isCounting = false;
+          setTimeout(() => {
+            this.resetCount(3);
+          }, 500);
+        }
       }
     },
 
