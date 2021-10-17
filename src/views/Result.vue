@@ -10,7 +10,7 @@
       </div>
       <v-divider />
       <div class="title text-center">
-        {{ `${correct.length * 10}/${result.answers.length * 10}` }}
+        {{ `${correct.length * (100 / result.answers.length)}/100` }}
       </div>
       <div class="mx-2 my-3 body-1 text-center">
         <span
@@ -166,6 +166,7 @@ export default {
 
   mounted() {
     this.countDownTimer();
+    console.log(this.correct.length);
   },
 
   methods: {
