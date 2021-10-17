@@ -58,7 +58,7 @@
                   icon
                   color="green"
                   :disabled="isPlaying"
-                  @click="playAudio(item.word)"
+                  @click="playAudio(item.answer)"
                 >
                   <v-icon>mdi-volume-high</v-icon>
                 </v-btn>
