@@ -166,7 +166,6 @@ export default {
 
   mounted() {
     this.countDownTimer();
-    console.log(this.correct.length);
   },
 
   methods: {

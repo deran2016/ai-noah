@@ -464,14 +464,9 @@ export default {
         answer: 'raffine',
       },
       {
-        question: '해외의',
-        answers: ['étranger', 'etrangér', 'tourisme', 'tourismé'],
-        answer: 'étranger',
-      },
-      {
-        question: '커튼',
-        answers: ['cartian', 'rideue', 'rideau', 'certian'],
-        answer: 'rideau',
+        question: '음식의, 영양의',
+        answers: ['alimantaire', 'alimentaire', 'derrière', 'derriere'],
+        answer: 'alimentaire',
       },
       {
         question: '다소',

@@ -331,8 +331,8 @@ export default {
         def: '딸기',
       },
       {
-        word: 'rideau',
-        def: '커튼',
+        word: 'alimentaire',
+        def: '음식의, 영양의',
       },
       {
         word: 'quelque',
