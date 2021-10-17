@@ -579,6 +579,7 @@ export default {
 
     checkAnswer(item) {
       this.pushAnswer(item);
+      this.selected = '';
       if (this.quizs[(this.condition - 1) % 2][this.round].length - 1 === this.quizIndex) {
         console.log('퀴즈 종료');
         this.submit();
