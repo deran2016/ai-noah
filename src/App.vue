@@ -29,7 +29,7 @@
 
 <script>
 /* eslint-disable import/no-unresolved */
-import MediaList from './view/components/MediaList.vue';
+import MediaList from './views/components/MediaList.vue';
 
 export default {
   name: 'App',
