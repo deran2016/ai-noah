@@ -71,11 +71,11 @@ export default {
       time: '30초',
     }, {
       title: '세트A',
-      wordCount: 35,
+      wordCount: 25,
       time: '3분',
     }, {
       title: '세트B',
-      wordCount: 35,
+      wordCount: 25,
       time: '3분',
     }]],
     page: 0,
