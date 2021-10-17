@@ -27,6 +27,10 @@ export default {
         return ['Oops, There is nothing!'];
       },
     },
+    delay: {
+      type: Number,
+      default: 700,
+    },
   },
 
   data: () => ({
@@ -53,7 +57,7 @@ export default {
     this.items = this.value;
     setTimeout(() => {
       this.showing = true;
-    }, 700);
+    }, this.delay);
   },
 };
 </script>
