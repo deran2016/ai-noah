@@ -54,6 +54,14 @@
             >
               <td class="text-center">
                 {{ item.answer }}
+                <v-btn
+                  icon
+                  color="green"
+                  :disabled="isPlaying"
+                  @click="playAudio(item.word)"
+                >
+                  <v-icon>mdi-volume-high</v-icon>
+                </v-btn>
               </td>
               <td class="text-center">
                 {{ item.question }}
@@ -78,7 +86,7 @@
       <v-btn
         block
         color="primary"
-        :disabled="disabled"
+        :disabled="disabled || isPlaying"
         @click="next()"
       >
         {{ page === textbox[round].length - 1 ?
@@ -100,6 +108,7 @@ export default {
   },
 
   data: () => ({
+    isPlaying: false,
     countDown: 3,
     page: 0,
     textbox: [[
@@ -192,6 +201,25 @@ export default {
       if (answer !== myanswer) color = 'red';
       else color = 'green';
       return color;
+    },
+
+    playAudio(file) {
+      this.file = file;
+
+      const audio = document.getElementById(this.file);
+      try {
+        audio.play();
+        audio.onplaying = () => {
+          this.isPlaying = true;
+        };
+        audio.onended = () => {
+          this.isPlaying = false;
+        };
+      } catch (e) {
+        console.log(e);
+      } finally {
+        this.isPlaying = false;
+      }
     },
 
     next() {
