@@ -137,7 +137,7 @@ export default {
         contents: [
           {
             title: 'e é è ê',
-            button: '공부 시작하기',
+            button: '다음',
             isBox: true,
             textbox: [
               [ // Condition 1 & 2
