@@ -2,6 +2,7 @@
 import Vue from 'vue';
 import firebase from 'firebase/app';
 import 'firebase/firebase-database';
+import 'firebase/analytics';
 import Vue2TouchEvents from 'vue2-touch-events';
 import App from './App.vue';
 import router from './router';
@@ -20,6 +21,7 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
+firebase.analytics();
 Vue.prototype.$firebase = firebase;
 Vue.config.productionTip = false;
 
