@@ -293,8 +293,18 @@ export default {
       let str;
       if (this.round === 0) {
         str = ['본 세트에서는 단어 결과에 대한', '분석이 나타납니다.'];
-      } else {
-        str = ['당신의 단어 성적은', '같은 레벨의 사용자 중에서', '상위 10% 입니다.'];
+      } else if (this.round === 1) {
+        if ((this.condition - 1) % 2 === 0) {
+          str = ['점수 결과는', '상위 20 퍼센트입니다.'];
+        } else if ((this.condition - 1) % 2 === 1) {
+          str = ['점수 결과는', '하위 20 퍼센트입니다.'];
+        }
+      } else if (this.round === 2) {
+        if ((this.condition - 1) % 2 === 0) {
+          str = ['점수 결과는', '상위 18 퍼센트입니다.'];
+        } else if ((this.condition - 1) % 2 === 1) {
+          str = ['점수 결과는', '하위 18 퍼센트입니다.'];
+        }
       }
       return str;
     },
