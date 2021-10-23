@@ -927,6 +927,9 @@ export default {
   },
 
   mounted() {
+    if (parseInt((this.condition - 1) / 2) === 1) {
+      this.texts[10].contents[1].button = '준비됐어요';
+    }
     this.initTab();
     this.countDownTimer();
   },
