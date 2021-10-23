@@ -22,6 +22,7 @@
         block
         color="primary"
         :loading="isSending"
+        :disabled="disabled"
         @click="goSurvey"
       >
         설문조사 하러가기 {{ countDown > 0 ? `(${countDown})` : '' }}
@@ -43,6 +44,10 @@ export default {
   computed: {
     condition() {
       return this.$store.state.data.experimentType;
+    },
+
+    disabled() {
+      return this.countDown > 0;
     },
   },
 
