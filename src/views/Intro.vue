@@ -11,12 +11,11 @@
 
       <div
         class="px-3 py-5 body-1 text-center"
+        style="width: 20%; margin: 0 auto"
       >
-        <div style="width: 40%; margin: 0 auto">
-          <v-img
-            :src="require('@/assets/noah.png')"
-          />
-        </div>
+        <v-img
+          :src="require(`@/assets/noah${parseInt((condition - 1) / 2)}.png`)"
+        />
       </div>
     </v-card-text>
 
