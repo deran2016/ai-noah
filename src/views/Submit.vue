@@ -78,14 +78,7 @@ export default {
     },
 
     goSurvey() {
-      let url = '';
-      if (this.condition === '1') {
-        url = 'https://forms.gle/';
-      } else if (this.condition === '2') {
-        url = 'https://forms.gle/';
-      } else if (this.condition === '3') {
-        url = 'https://forms.gle/';
-      }
+      const url = 'https://docs.google.com/forms/d/1OQzOT4DXHwaWkoIEfXaA64fcQTjuKJF-eHxVSd2utnQ/edit?usp=sharing';
       window.open(url);
     },
 
