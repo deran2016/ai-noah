@@ -33,6 +33,8 @@
       </div>
       <v-divider />
       <v-simple-table
+        fixed-header
+        height="350px"
         class="elevation-1"
       >
         <template v-slot:default>
