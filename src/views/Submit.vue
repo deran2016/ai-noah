@@ -78,7 +78,7 @@ export default {
     },
 
     goSurvey() {
-      const url = 'https://docs.google.com/forms/d/1OQzOT4DXHwaWkoIEfXaA64fcQTjuKJF-eHxVSd2utnQ/edit?usp=sharing';
+      const url = 'https://forms.gle/tP4Swd7NCTcGFFJY9';
       window.open(url);
     },
 
