@@ -78,8 +78,9 @@ export default {
     },
 
     goSurvey() {
-      const url = 'https://forms.gle/tP4Swd7NCTcGFFJY9';
-      window.open(url);
+      // const url = 'https://forms.gle/tP4Swd7NCTcGFFJY9';
+      // window.open(url);
+      this.$router.push({ name: 'End' });
     },
 
     countDownTimer() {

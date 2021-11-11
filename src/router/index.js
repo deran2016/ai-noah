@@ -61,6 +61,11 @@ const routes = [
     name: 'Submit',
     component: () => import('../views/Submit.vue'),
   },
+  {
+    path: '/:preset/end',
+    name: 'End',
+    component: () => import('../views/End.vue'),
+  },
 
   { path: '*', redirect: '/404', hidden: true },
 ];
